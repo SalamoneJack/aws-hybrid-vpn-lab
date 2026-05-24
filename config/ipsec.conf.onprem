@@ -1,0 +1,25 @@
+# strongSwan config for the ONPREM-SIM VPN instance
+# Place at: /etc/ipsec.conf
+# Replace <CLOUD_EIP> and <ONPREM_EIP> with values from terraform output
+
+config setup
+    charondebug="ike 1, knl 1, cfg 0, net 0"
+
+conn onprem-to-cloud
+    keyexchange=ikev2
+
+    # Left = this instance (onprem-sim side)
+    left=%defaultroute
+    leftid=<ONPREM_EIP>
+    leftsubnet=10.20.0.0/16
+
+    # Right = remote instance (cloud side)
+    right=<CLOUD_EIP>
+    rightid=<CLOUD_EIP>
+    rightsubnet=10.10.0.0/16
+
+    authby=secret
+    auto=start
+
+    ike=aes256-sha256-modp2048!
+    esp=aes256-sha256!

@@ -1,0 +1,28 @@
+# strongSwan config for the CLOUD VPN instance
+# Place at: /etc/ipsec.conf
+# Replace <CLOUD_EIP> and <ONPREM_EIP> with values from terraform output
+
+config setup
+    charondebug="ike 1, knl 1, cfg 0, net 0"
+
+conn cloud-to-onprem
+    keyexchange=ikev2
+
+    # Left = this instance (cloud side)
+    left=%defaultroute
+    leftid=<CLOUD_EIP>
+    leftsubnet=10.10.0.0/16
+
+    # Right = remote instance (onprem-sim side)
+    right=<ONPREM_EIP>
+    rightid=<ONPREM_EIP>
+    rightsubnet=10.20.0.0/16
+
+    authby=secret
+    auto=start
+
+    # IKE Phase 1: AES-256, SHA-256, DH Group 14 (2048-bit)
+    ike=aes256-sha256-modp2048!
+
+    # IKE Phase 2 (ESP): AES-256, SHA-256
+    esp=aes256-sha256!
