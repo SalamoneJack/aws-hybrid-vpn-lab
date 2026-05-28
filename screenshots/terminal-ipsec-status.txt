@@ -1,0 +1,33 @@
+Security Associations (2 up, 0 connecting):
+cloud-to-onprem[2]: ESTABLISHED 31 seconds ago, 10.10.1.10[32.195.193.33]...13.218.2.244[13.218.2.244]
+cloud-to-onprem{1}:  INSTALLED, TUNNEL, reqid 1, ESP in UDP SPIs: c3c914e9_i cbe2b85f_o
+cloud-to-onprem{1}:   10.10.0.0/16 === 10.20.0.0/16
+cloud-to-onprem[1]: ESTABLISHED 8 seconds ago, 10.10.1.10[32.195.193.33]...13.218.2.244[13.218.2.244]
+cloud-to-onprem{2}:  INSTALLED, TUNNEL, reqid 1, ESP in UDP SPIs: c35e09c6_i cd7f05f4_o
+cloud-to-onprem{2}:   10.10.0.0/16 === 10.20.0.0/16
+----
+Status of IKE charon daemon (strongSwan 5.9.5, Linux 6.8.0-1055-aws, x86_64):
+  uptime: 98 seconds, since May 28 16:55:58 2026
+  malloc: sbrk 2138112, mmap 0, used 1278880, free 859232
+  worker threads: 11 of 16 idle, 5/0/0/0 working, job queue: 0/0/0/0, scheduled: 7
+  loaded plugins: charon aesni aes rc2 sha2 sha1 md5 mgf1 random nonce x509 revocation constraints pubkey pkcs1 pkcs7 pkcs8 pkcs12 pgp dnskey sshkey pem openssl fips-prf gmp agent xcbc hmac gcm drbg attr kernel-netlink resolve socket-default connmark stroke updown eap-mschapv2 xauth-generic counters
+Listening IP addresses:
+  10.10.1.10
+Connections:
+cloud-to-onprem:  %any...13.218.2.244  IKEv2
+cloud-to-onprem:   local:  [32.195.193.33] uses pre-shared key authentication
+cloud-to-onprem:   remote: [13.218.2.244] uses pre-shared key authentication
+cloud-to-onprem:   child:  10.10.0.0/16 === 10.20.0.0/16 TUNNEL
+Security Associations (2 up, 0 connecting):
+cloud-to-onprem[2]: ESTABLISHED 31 seconds ago, 10.10.1.10[32.195.193.33]...13.218.2.244[13.218.2.244]
+cloud-to-onprem[2]: IKEv2 SPIs: c44e880833c8ce35_i ecaa80bf310ae3f8_r*, pre-shared key reauthentication in 2 hours
+cloud-to-onprem[2]: IKE proposal: AES_CBC_256/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_2048
+cloud-to-onprem{1}:  INSTALLED, TUNNEL, reqid 1, ESP in UDP SPIs: c3c914e9_i cbe2b85f_o
+cloud-to-onprem{1}:  AES_CBC_256/HMAC_SHA2_256_128, 0 bytes_i, 0 bytes_o, rekeying in 48 minutes
+cloud-to-onprem{1}:   10.10.0.0/16 === 10.20.0.0/16
+cloud-to-onprem[1]: ESTABLISHED 8 seconds ago, 10.10.1.10[32.195.193.33]...13.218.2.244[13.218.2.244]
+cloud-to-onprem[1]: IKEv2 SPIs: b9162df8725ac382_i* bc30270d25e0f2d1_r, pre-shared key reauthentication in 2 hours
+cloud-to-onprem[1]: IKE proposal: AES_CBC_256/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_2048
+cloud-to-onprem{2}:  INSTALLED, TUNNEL, reqid 1, ESP in UDP SPIs: c35e09c6_i cd7f05f4_o
+cloud-to-onprem{2}:  AES_CBC_256/HMAC_SHA2_256_128, 0 bytes_i, 0 bytes_o, rekeying in 49 minutes
+cloud-to-onprem{2}:   10.10.0.0/16 === 10.20.0.0/16
