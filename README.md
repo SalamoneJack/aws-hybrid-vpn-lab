@@ -8,6 +8,14 @@
 
 Simulates a hybrid cloud network by building an encrypted site-to-site VPN between two isolated AWS VPCs — one representing a cloud environment, one representing an on-premises data center. Built entirely with Terraform using strongSwan, the same IPSec stack that powers AWS Site-to-Site VPN under the hood.
 
+> ### Tunnel verified end-to-end
+>
+> strongSwan IKEv2 / AES-256-CBC / SHA-256 / MODP-2048 between two VPCs, brought to ESTABLISHED and **verified with end-to-end ping: 5/5 received, 0% loss, sub-2ms RTT across the encrypted tunnel.**
+>
+> ![ipsec statusall — ESTABLISHED with full IKE/ESP detail](screenshots/terminal-ipsec-statusall.png)
+>
+> **Full deployment evidence, ping captures, tunnel state:** [`screenshots/`](screenshots/)
+
 ## The Problem
 
 Every enterprise network already exists before cloud adoption begins. The real challenge isn't building in cloud — it's connecting cloud securely to what's already there: on-prem data centers, co-location facilities, existing MPLS circuits. This lab demonstrates the core skill: establishing encrypted hybrid connectivity.
