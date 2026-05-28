@@ -69,10 +69,10 @@ Route tables on both VPCs send the peer CIDR through the strongSwan ENI. Securit
 
 ## How It Works
 
-### Packet Flow: Cloud Test EC2 â†’ OnPrem Test EC2
+### Packet Flow: Cloud Test EC2 → OnPrem Test EC2
 
 1. Test EC2 in Cloud VPC sends packet to `10.20.1.x`
-2. Route table entry `10.20.0.0/16 â†’ strongSwan ENI` intercepts it
+2. Route table entry `10.20.0.0/16 → strongSwan ENI` intercepts it
 3. strongSwan on Cloud instance encrypts payload with AES-256, wraps in ESP
 4. Encrypted packet leaves via EIP, traverses public internet to OnPrem EIP
 5. OnPrem strongSwan decrypts, checks IKE SA, delivers decrypted packet to destination
@@ -228,8 +228,8 @@ See `Documentation/` for expected output.
 
 | Resource | Monthly Cost |
 |----------|-------------|
-| 2Ã— t2.micro (Free Tier eligible) | $0 |
-| 2Ã— Elastic IPs (attached to running instances) | $0 |
+| 2× t2.micro (Free Tier eligible) | $0 |
+| 2× Elastic IPs (attached to running instances) | $0 |
 | Data transfer (cross-VPC, minimal lab traffic) | ~$0 |
 | **Total** | **$0** |
 
