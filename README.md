@@ -235,7 +235,7 @@ See `Documentation/` for expected output.
 
 Run `terraform destroy` when finished. Unattached EIPs cost $0.005/hr.
 
-## What I Learned
+## Engineering notes
 
 - The gap between "tunnel ESTABLISHED" and "traffic flowing" — you need both the IKE SA and correct route table entries pointing at the strongSwan ENI
 - `source_dest_check = false` is the AWS equivalent of `ip routing` on a Cisco interface — without it, the instance drops forwarded packets
